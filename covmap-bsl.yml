@@ -1,0 +1,15 @@
+name: covmap-bsl
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - trimmomatic
+  - ivar
+  - igv
+  - bcftools
+  - samtools
+  - bwa
+  - fastp
+  - fastqc
+  - mafft
+  - Iqtree
