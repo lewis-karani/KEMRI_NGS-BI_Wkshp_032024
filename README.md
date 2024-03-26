@@ -71,7 +71,7 @@ bwa index ./genome_ref/sarcov2-Wu1.fasta
 In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
 The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
 ```
-bwa mem -t 4  /genome_ref/sarscov2-Wu1.fasta R1_pair.fastq R2_pair.fastq | samtools sort |samtools view -F 4 -o  WHO_1.sorted.bam
+bwa mem -t 4  ./genome_ref/sarscov2-Wu1.fasta R1_pair.fastq R2_pair.fastq | samtools sort |samtools view -F 4 -o  WHO_1.sorted.bam
 ```
 *Remove primers:*
 In this step, we use ivar to remove primers from the alignment map
