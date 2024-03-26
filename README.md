@@ -12,22 +12,10 @@ Download all the necessary tools you will need for this walkthrough
 ## Setting up the necessary tools
 It is highly recommended to set up the necessary tools in an environment. This guarantees stability of the pipeline and its dependencies. 
 
-**Install mamba**
-
-```
-wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
-```
-Once you download the installer, run the command below to install conda…
-
-```
-bash Mambaforge-Linux-x86_64.sh
-```
-Close the terminal and reopen a new terminal
-
 create an environment named covmap-bsl by running the following commands using the yaml file provided i.e. _covmap-bsl.yml_
 
 ```
-mamba env create --file covmap-bsl.yml
+conda env create --file covmap-bsl.yml
 ```
 Tools required for this walkthrough:
 - fastqc - https://github.com/s-andrews/FastQC
