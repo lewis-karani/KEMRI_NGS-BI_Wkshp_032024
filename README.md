@@ -37,7 +37,7 @@ This creates .html files that you can open using your web browser.
 **Trimming:**
 Once you determine the quality of your sequence data, proceed to trimming adapters and bad quality sequences using trimmomatic PE. Ensure your adapter file is in the path of the software in the ILLUMINACLIP option. You can view the trimmed files with fastqc.
 
-_collapse all the adapter fasta files into one called adapters.fa_
+_collapse all the adapter fasta files into one called adapters.fa_ edit <user> to your terminal username
 ```
 cat /home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/*.fa > /home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/adapters.fa
 ``` 
@@ -50,7 +50,7 @@ trimmomatic PE -threads 4 raw_data/R1.fastq.gz R2.fastq.gz raw_data/R1_pair.fast
 **_trim multiple samples at once:_**
 use the  _cov-trim.sh_ bash script under software and tools folder…
 
-Edit the path to you adapter file with nano/vim editor  _/home/user/miniconda3/envs/covmap-bsl/share/trimmomatic/adapters/adapters.fa_
+Edit the path to you adapter file with nano/vim editor  _/home/<user>/miniconda3/envs/covmap-bsl/share/trimmomatic/adapters/adapters.fa_
 Save the file and exit
 Make it executable by running the following command chmod +x cov-trim.sh
 To run it, just type: ./cov-trim.sh *.fastq.gz assuming your script is in the same folder as the samples
