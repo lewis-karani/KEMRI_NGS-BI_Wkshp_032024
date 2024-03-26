@@ -55,9 +55,6 @@ Save the file and exit
 Make it executable by running the following command chmod +x cov-trim.sh
 To run it, just type: ./cov-trim.sh *.fastq.gz assuming your script is in the same folder as the samples
 
-**Map reads against reference:**
-In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
-The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
 
 Create a directory called genome_ref and download reference genome into it
 ```
@@ -70,7 +67,9 @@ index the reference fasta
 ```
 bwa index /genome_ref/sarscov2-Wu1.fasta
 ```
-
+**Map reads against reference:**
+In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
+The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
 ```
 bwa mem -t 4  /genome_ref/sarscov2-Wu1.fasta R1_pair.fastq R2_pair.fastq | samtools sort |samtools view -F 4 -o  WHO_1.sorted.bam
 ```
