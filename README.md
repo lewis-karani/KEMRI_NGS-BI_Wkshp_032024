@@ -177,3 +177,17 @@ especially if you want to use Maximum Likelihood/ Bayesian methods
 Note
 issues with java? download here: https://www.java.com/en/download/
 
+MSA:
+```
+mafft --maxiterate 1000 --globalpair input > output
+```
+input = concatanate consensus fasta files
+
+Tree generation
+```
+iqtree -s input -nt auto
+```
+input = output from mafft
+
+
+
