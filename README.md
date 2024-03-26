@@ -60,7 +60,7 @@ Create a directory called genome_ref and download reference genome into it
 ```
 mkdir ./genome_ref
 cd genome_ref
-wget -O sarcov2-wu1.fasta "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_045512.2&rettype=fasta&retmode=text"
+wget -O sarcov2-Wu1.fasta "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_045512.2&rettype=fasta&retmode=text"
 cd ..
 ```
 index the reference fasta
