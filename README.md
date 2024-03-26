@@ -59,13 +59,13 @@ To run it, just type: ./cov-trim.sh *.fastq.gz assuming your script is in the sa
 Create a directory called genome_ref and download reference genome into it
 ```
 mkdir ./genome_ref
-cd genome_ref
+cd ./genome_ref
 wget -O sarcov2-Wu1.fasta "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_045512.2&rettype=fasta&retmode=text"
 cd ..
 ```
 index the reference fasta
 ```
-bwa index /genome_ref/sarscov2-Wu1.fasta
+bwa index ./genome_ref/sarcov2-Wu1.fasta
 ```
 **Map reads against reference:**
 In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
