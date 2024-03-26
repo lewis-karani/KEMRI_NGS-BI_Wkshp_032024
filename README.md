@@ -58,6 +58,19 @@ To run it, just type: ./cov-trim.sh *.fastq.gz assuming your script is in the sa
 **Map reads against reference:**
 In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
 The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
+
+Create a directory called genome_ref and download reference genome into it
+```
+mkdir ./genome_ref
+cd genome_ref
+wget -O sarcov2-wu1.fasta "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_045512.2&rettype=fasta&retmode=text"
+cd ..
+```
+index the reference fasta
+```
+bwa index /genome_ref/sarscov2-Wu1.fasta
+```
+
 ```
 bwa mem -t 4  /genome_ref/sarscov2-Wu1.fasta R1_pair.fastq R2_pair.fastq | samtools sort |samtools view -F 4 -o  WHO_1.sorted.bam
 ```
