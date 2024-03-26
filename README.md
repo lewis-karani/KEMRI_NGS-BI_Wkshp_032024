@@ -185,7 +185,7 @@ input = concatanate consensus fasta files
 
 Tree generation
 ```
-iqtree -s ALIGNMENT -t TREE
+iqtree -s ALIGNMENT -nt AUTO
 ```
 -s = output from mafft
 
