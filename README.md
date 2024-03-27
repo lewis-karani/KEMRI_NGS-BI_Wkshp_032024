@@ -188,7 +188,7 @@ augur tree --alignment aligned_sequences.fasta --output tree.json
 ```
 Visualize the Phylogenetic Tree: 
 ```
-auspice view --tree tree.json
+auspice view --flags
 
 ```
 
