@@ -177,17 +177,11 @@ especially if you want to use Maximum Likelihood/ Bayesian methods
 Note
 issues with java? download here: https://www.java.com/en/download/
 
-MSA:
-```
-mafft --maxiterate 1000 --globalpair input > output
-```
-input = concatanate consensus fasta files
+Install Nextstrain CLI: https://docs.nextstrain.org/en/latest/install.html
+Run Augur for Sequence Alignment: augur align --sequences input.fasta --output aligned_sequences.fasta
+Run Augur for Phylogenetic Analysis: augur tree --alignment aligned_sequences.fasta --output tree.json
+Visualize the Phylogenetic Tree: auspice view --tree tree.json
 
-Tree generation
-```
-iqtree -s ALIGNMENT -nt AUTO
-```
--s = output from mafft
 
 
 
