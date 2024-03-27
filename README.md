@@ -178,10 +178,18 @@ Note
 issues with java? download here: https://www.java.com/en/download/
 
 Install Nextstrain CLI: https://docs.nextstrain.org/en/latest/install.html
-Run Augur for Sequence Alignment: augur align --sequences input.fasta --output aligned_sequences.fasta
-Run Augur for Phylogenetic Analysis: augur tree --alignment aligned_sequences.fasta --output tree.json
-Visualize the Phylogenetic Tree: auspice view --tree tree.json
+Run Augur for Sequence Alignment:
+```
+augur align --sequences input.fasta --output aligned_sequences.fasta
+```
+Run Augur for Phylogenetic Analysis:
+```
+augur tree --alignment aligned_sequences.fasta --output tree.json
+```
+Visualize the Phylogenetic Tree: 
+```
+auspice view --tree tree.json
 
-
+```
 
 
