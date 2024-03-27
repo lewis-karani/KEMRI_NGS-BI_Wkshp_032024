@@ -1,0 +1,3 @@
+visit: https://docs.nextstrain.org/en/latest/install.html to install Nextstrain runtime
+Download the ncov workflow : git clone https://github.com/nextstrain/ncov.git
+Run the ncov workflow: https://docs.nextstrain.org/projects/ncov/en/latest/tutorial/example-data.html
