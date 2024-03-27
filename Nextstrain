@@ -1,3 +1,4 @@
 visit: https://docs.nextstrain.org/en/latest/install.html to install Nextstrain runtime
 Download the ncov workflow : git clone https://github.com/nextstrain/ncov.git
 Run the ncov workflow: https://docs.nextstrain.org/projects/ncov/en/latest/tutorial/example-data.html
+Download the custom data: gisaid_auspice_input_hcov-19_2024_03_27_05.tar and run the analysis using the listed instructions
