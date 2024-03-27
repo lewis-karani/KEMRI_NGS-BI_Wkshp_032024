@@ -14,6 +14,10 @@ https://docs.nextstrain.org/projects/ncov/en/latest/tutorial/example-data.html
 
 4. Download the custom data: 
 
-gisaid_auspice_input_hcov-19_2024_03_27_05.tar found as a file on this github repo
+gisaid_auspice_input_hcov-19_2024_03_27_05.tar found as a file on this github repo onto your computer
+
+5. download winZP extractor: https://www.winzip.com/en/learn/file-formats/tar/
+
+6. Extract contents of the tar file onto your drive
 
 5. Run analysis on the custom data using the listed instructions on the nextstrain webpage
