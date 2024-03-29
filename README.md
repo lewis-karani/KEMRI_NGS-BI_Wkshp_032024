@@ -62,7 +62,7 @@ Create a directory called genome_ref and download reference genome into it
 mkdir ./genome_ref
 cd ./genome_ref
 wget -O sarcov2-Wu1.fasta "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_045512.2&rettype=fasta&retmode=text"
-cd ..
+cd 
 ```
 index the reference fasta
 ```
@@ -84,6 +84,8 @@ mkdir artic_v3
 cd artic_v3
 wget https://github.com/lewis-karani/KEMRI_NGS-BI_Wkshp_032024/blob/main/genome_ref/artic_v3/ARTIC-V3.bed
 cd ..
+```
+trim the primers
  
 ```
 ivar trim -e -i WHO_3_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_3_ptrm.bam
