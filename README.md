@@ -44,7 +44,8 @@ cat /home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/*.
 
 Run trimmomatic on the data
 ```
-trimmomatic PE -threads 4 raw_data/R1.fastq.gz R2.fastq.gz raw_data/R1_pair.fastq R1_unpair.fastq R2_pair.fastq R2_unpair.fastq ILLUMINACLIP:/home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:70
+trimmomatic PE -threads 4 WHO_1_R1_001.fastq.gz WHO_1_R2_001.fastq.gz WHO_1_R1_pair
+.fastq.gz WHO_1_R1_unpair.fastq.gz WHO_1_R2_pair.fastq.gz WHO_1_R2_unpair.fastq.gz ILLUMINACLIP:/home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:70
 ```
 
 **_trim multiple samples at once:_**
