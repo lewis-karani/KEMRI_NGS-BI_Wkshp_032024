@@ -72,27 +72,27 @@ bwa index ./genome_ref/sarcov2-Wu1.fasta
 In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
 The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
 ```
-bwa mem -t 4  ./genome_ref/sarscov2-Wu1.fasta R1_pair.fastq R2_pair.fastq | samtools sort |samtools view -F 4 -o  WHO_1.sorted.bam
+bwa mem -t 4 ./genome_ref/sarcov2-Wu1.fasta WHO_3_R1_pair.fastq.gz WHO_3_R2_pair.fastq.gz | samtools sort | samtools view -F 4 -o WHO_3_sorted.bam
 ```
 *Remove primers:*
 In this step, we use ivar to remove primers from the alignment map
  
 ```
-ivar trim -e -i WHO_1.sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_1.sorted.bam.primertrim
+ivar trim -e -i WHO_3_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_3_ptrm.bam
 ```
 Sorting bams:
 ```
-samtools sort WHO_1.sorted.bam.primertrim.bam -o WHO_1.sorted.bam.primertrim.bam.sorted
+samtools sort WHO_3_ptrm.bam -o WHO_3_ptrm_sorted.bam
 ```
 Calling the consensus sequence:
 samtools creates the read pileups which ivar uses to call consensus at a minimum depth quality of 10.
 ```
-samtools mpileup -A -d 1000 -B -Q 0 --reference ./genome_ref/sarscov2-Wu1.fasta WHO_1.sorted.bam.primertrim.bam.sorted | ivar consensus -p WHO_1.consensus -n N -m 10
+samtools mpileup -A -d 1000 -B -Q 0 --reference ./genome_ref/sarscov2-Wu1.fasta WHO_3_ptrm_sorted.bam.| ivar consensus -p WHO_3.consensus -n N -m 10
 ```
 Visualizing the read mapping with igv
 convert WHO_1.sorted.bam to .sam
 ```
-samtools view -h WHO_1.sorted.bam > WHO_1.sorted.sam
+samtools view -h WHO_3_sorted.bam > WHO_3_sorted.sam
 ```
 **GenomeQC and classification with nextclade**
 Nextclade Web is a useful tool to curate your consensus genome. It also classifies your SARS-CoV-2 genome into clades and pango lineages, as well as catalogues the nucleotide and amino acid mutations in your consensus genome as compared to the Wu-H1 reference. Drag and drop your genome into nexclade for analysis.
