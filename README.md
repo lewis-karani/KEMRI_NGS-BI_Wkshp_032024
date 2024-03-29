@@ -82,7 +82,8 @@ Make a directory artic_v3 inside genome_ref and download the primer bed file int
 cd genome_ref
 mkdir artic_v3
 cd artic_v3
-wget 
+wget https://github.com/lewis-karani/KEMRI_NGS-BI_Wkshp_032024/blob/main/genome_ref/artic_v3/ARTIC-V3.bed
+cd ..
  
 ```
 ivar trim -e -i WHO_3_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_3_ptrm.bam
