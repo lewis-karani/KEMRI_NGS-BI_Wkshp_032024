@@ -75,7 +75,14 @@ The output of bwa is piped “|” into samtools as input to sort the alignments
 bwa mem -t 4 ./genome_ref/sarcov2-Wu1.fasta WHO_3_R1_pair.fastq.gz WHO_3_R2_pair.fastq.gz | samtools sort | samtools view -F 4 -o WHO_3_sorted.bam
 ```
 *Remove primers:*
-In this step, we use ivar to remove primers from the alignment map
+In this step, we use ivar to remove primers from the alignment map.
+Make a directory artic_v3 inside genome_ref and download the primer bed file into the directory
+
+```
+cd genome_ref
+mkdir artic_v3
+cd artic_v3
+wget 
  
 ```
 ivar trim -e -i WHO_3_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_3_ptrm.bam
