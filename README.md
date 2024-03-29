@@ -44,8 +44,8 @@ cat /home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/*.
 
 Run trimmomatic on the data
 ```
-trimmomatic PE -threads 4 WHO_1_R1_001.fastq.gz WHO_1_R2_001.fastq.gz WHO_1_R1_pair
-.fastq.gz WHO_1_R1_unpair.fastq.gz WHO_1_R2_pair.fastq.gz WHO_1_R2_unpair.fastq.gz ILLUMINACLIP:/home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:70
+trimmomatic PE -threads 4 WHO_#_R1_001.fastq.gz WHO_#_R2_001.fastq.gz WHO_#_R1_pair
+.fastq.gz WHO_#_R1_unpair.fastq.gz WHO_#_R2_pair.fastq.gz WHO_#_R2_unpair.fastq.gz ILLUMINACLIP:/home/<user>/mambaforge/envs/covmap-bsl/share/trimmomatic-0.39-2/adapters/adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:70
 ```
 
 **_trim multiple samples at once:_**
@@ -72,7 +72,7 @@ bwa index ./genome_ref/sarcov2-Wu1.fasta
 In this step, bwa mem is used to map the trimmed fastq files against the reference SARS-CoV-2 genome.
 The output of bwa is piped “|” into samtools as input to sort the alignments, which are then output as bam files.
 ```
-bwa mem -t 4 ./genome_ref/sarcov2-Wu1.fasta WHO_3_R1_pair.fastq.gz WHO_3_R2_pair.fastq.gz | samtools sort | samtools view -F 4 -o WHO_3_sorted.bam
+bwa mem -t 4 ./genome_ref/sarcov2-Wu1.fasta WHO_#_R1_pair.fastq.gz WHO_#_R2_pair.fastq.gz | samtools sort | samtools view -F 4 -o WHO_#_sorted.bam
 ```
 *Remove primers:*
 In this step, we use ivar to remove primers from the alignment map.
@@ -88,21 +88,21 @@ cd ..
 trim the primers
  
 ```
-ivar trim -e -i WHO_3_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_3_ptrm.bam
+ivar trim -e -i WHO_#_sorted.bam -b ./genome_ref/artic_v3/ARTIC-V3.bed -p WHO_#_ptrm.bam
 ```
 Sorting bams:
 ```
-samtools sort WHO_3_ptrm.bam -o WHO_3_ptrm_sorted.bam
+samtools sort WHO_#_ptrm.bam -o WHO_#_ptrm_sorted.bam
 ```
 Calling the consensus sequence:
 samtools creates the read pileups which ivar uses to call consensus at a minimum depth quality of 10.
 ```
-samtools mpileup -A -d 1000 -B -Q 0 --reference ./genome_ref/sarscov2-Wu1.fasta WHO_3_ptrm_sorted.bam.| ivar consensus -p WHO_3.consensus -n N -m 10
+samtools mpileup -A -d 1000 -B -Q 0 --reference ./genome_ref/sarscov2-Wu1.fasta WHO_3_ptrm_sorted.bam.| ivar consensus -p WHO_#.consensus -n N -m 10
 ```
 Visualizing the read mapping with igv
 convert WHO_1.sorted.bam to .sam
 ```
-samtools view -h WHO_3_sorted.bam > WHO_3_sorted.sam
+samtools view -h WHO_#_sorted.bam > WHO_#_sorted.sam
 ```
 **GenomeQC and classification with nextclade**
 Nextclade Web is a useful tool to curate your consensus genome. It also classifies your SARS-CoV-2 genome into clades and pango lineages, as well as catalogues the nucleotide and amino acid mutations in your consensus genome as compared to the Wu-H1 reference. Drag and drop your genome into nexclade for analysis.
